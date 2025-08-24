@@ -1,520 +1,629 @@
-* {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .section {
-            background: white;
-            margin: 40px 0;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            min-height: 80vh;
-        }
-
-        .section h1 {
-            color: #4a5568;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            text-align: center;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 20px;
-        }
-
-        .section h2 {
-            color: #2d3748;
-            margin: 30px 0 20px 0;
-            font-size: 1.8em;
-        }
-
-        .section h3 {
-            color: #4a5568;
-            margin: 20px 0 15px 0;
-            font-size: 1.4em;
-        }
-
-        .step-container {
-            background: #f7fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 30px;
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .step-title {
-            font-size: 2em;
-            color: #2d3748;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .step-image {
-            max-width: 100%;
-            height: auto;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            margin: 20px auto;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            display: block;
-        }
-
-        .step-description {
-            font-size: 1.2em;
-            color: #4a5568;
-            margin: 20px 0;
-            line-height: 1.8;
-            text-align: left;
-        }
-
-        .btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 18px;
-            margin: 20px 10px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-
-        .btn:hover {
-            background: #5a67d8;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .btn-secondary {
-            background: #718096;
-        }
-
-        .btn-secondary:hover {
-            background: #4a5568;
-        }
-
-        .btn:disabled {
-            background: #a0aec0;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-
-        .step-counter {
-            background: #667eea;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
-        .code-block {
-            background: #2d3748;
-            color: #e2e8f0;
-            padding: 20px;
-            border-radius: 10px;
-            font-family: 'Courier New', monospace;
-            overflow-x: auto;
-            margin: 20px 0;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-
-        .algorithm-steps {
-            background: #edf2f7;
-            border-left: 4px solid #667eea;
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .info-box {
-            background: #bee3f8;
-            border: 1px solid #90cdf4;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
-        }
-
-        .warning-box {
-            background: #fed7d7;
-            border: 1px solid #feb2b2;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
-        }
-
-        .complexity-box {
-            background: #f0fff4;
-            border: 2px solid #68d391;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 6px;
-            background: #e2e8f0;
-            border-radius: 3px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: #667eea;
-            border-radius: 3px;
-            transition: width 0.3s ease;
-        }
-
-        .heuristic-comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .heuristic-card {
-            background: #f7fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 20px;
-        }
-
-        .heuristic-card h4 {
-            color: #2d3748;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-
-        .highlight {
-            background: #fef5e7;
-            border-left: 4px solid #ed8936;
-            padding: 15px;
-            margin: 15px 0;
-        }
-        /*     FOR PART 2        */
-        .newcontainer {
-            background: white;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .instruction-box {
-            background: #f8f9fa;
-            border: 2px solid #e9ecef;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .step {
-            margin: 15px 0;
-            padding: 12px 0;
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        .step:last-child {
-            border-bottom: none;
-        }
-
-        .step-number {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 25px;
-            font-weight: bold;
-            margin-right: 12px;
-            font-size: 0.9em;
-        }
-
-        .code-snippet {
-            background: #2d3748;
-            color: #e2e8f0;
-            padding: 15px;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-            margin: 10px 0;
-            overflow-x: auto;
-        }
-
-        .requirements {
-            background: #fff3cd;
-            border: 2px solid #ffeaa7;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .requirements h4 {
-            color: #856404;
-            margin-top: 0;
-            margin-bottom: 12px;
-        }
-
-        .requirements ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-
-
-        /* Part 3 Specific Stylings - Updated with Purple/Blue Theme */
-        .problem-section {
-            margin-bottom: 40px;
-        }
-
-        .problem-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #8b5cf6;
-        }
-
-        .problem-title {
-            color: #553c9a;
-            font-size: 1.8em;
-            margin: 0;
-        }
-
-        .problem-counter {
-            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 1.1em;
-            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
-        }
-
-        .map-container {
-            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-            border: 3px dashed #8b5cf6;
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            margin-bottom: 30px;
-            min-height: 700px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .problem-instructions {
-            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 50%);
-            border-left: 5px solid #8b5cf6;
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
-        }
-
-        .problem-instructions h3 {
-            color: #553c9a;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-
-        .problem-instructions ul {
-            margin: 15px 0;
-            padding-left: 25px;
-        }
-
-        .problem-instructions li {
-            margin: 8px 0;
-            color: #4c1d95;
-        }
-
-        .assignment-section {
-            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-            border: 2px solid #c4b5fd;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 20px 0;
-            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.1);
-        }
-
-        .assignment-section h3 {
-            color: #553c9a;
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-        }
-
-        .dropdown-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .country-assignment {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            padding: 18px;
-            background: linear-gradient(135deg, #ffffff 0%, #faf5ff 100%);
-            border-radius: 12px;
-            border: 2px solid #c4b5fd;
-            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .country-assignment:hover {
-            border-color: #8b5cf6;
-            box-shadow: 0 6px 16px rgba(139, 92, 246, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .country-label {
-            font-weight: bold;
-            color: #553c9a;
-            font-size: 1.1em;
-            text-align: center;
-        }
-
-        .frequency-select {
-            width: 100%;
-            padding: 10px 12px;
-            border: 2px solid #c4b5fd;
-            border-radius: 8px;
-            background: white;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            color: #553c9a;
-            font-weight: 500;
-        }
-
-        .frequency-select:focus {
-            outline: none;
-            border-color: #8b5cf6;
-            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
-        }
-
-        .frequency-select:hover {
-            border-color: #8b5cf6;
-        }
-
-        .feedback-box {
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 12px;
-            font-weight: bold;
-        }
-
-        .feedback-correct {
-            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-            border: 2px solid #10b981;
-            color: #065f46;
-        }
-
-        .feedback-incorrect {
-            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
-            border: 2px solid #ef4444;
-            color: #991b1b;
-        }
-
-        .solution-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            border: 3px solid #8b5cf6;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.15);
-        }
-
-        .solution-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .solution-section h2 {
-            color: #553c9a;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        #frequency-problems .btn {
-            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 10px 8px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
-        }
-
-        #frequency-problems .btn:hover {
-            background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
-        }
-
-        #frequency-problems .btn-secondary {
-            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
-        }
-
-        #frequency-problems .btn-secondary:hover {
-            background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
-        }
-
-        #frequency-problems .step-counter {
-            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            display: inline-block;
-            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
-        }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSP: Map Coloring with MRV and Degree Heuristic</title>
+    <link rel="stylesheet" href="mapcolor.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</head>
+<body>
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="container">
+        <div class="section" id="introduction">
+            <h1>CSP: Map Coloring using MRV and Degree Heuristic</h1>
+            
+            <h2>Introduction to Map Coloring Problems</h2>
+            <p>Map coloring is a classic Constraint Satisfaction Problem (CSP) where we need to assign colors to regions of a map such that no two adjacent regions share the same color. This problem demonstrates fundamental concepts in AI search algorithms and constraint satisfaction techniques. The challenge lies in efficiently exploring the solution space while maintaining consistency constraints.</p>
+
+            <div class="info-box">
+                <strong>⚠️ Key Concepts:</strong><br>
+                • <strong>Minimum Remaining Values (MRV):</strong> Choose the variable with the fewest legal values (most constrained variable)<br>
+                • <strong>Degree Heuristic:</strong> Break ties by selecting the variable involved in the most constraints with unassigned variables<br>
+                • <strong>Time Complexity:</strong> O(d^n) worst case, but heuristics significantly reduce average case<br>
+                • <strong>Space Complexity:</strong> O(n) for the recursion stack, where n is the number of variables
+            </div>
+
+            <h3>Why Use Variable Selection Heuristics?</h3>
+            <p>The MRV heuristic helps us fail fast by immediately detecting dead ends when a variable has no legal values. The degree heuristic reduces future branching by selecting variables that constrain the most other variables. Together, they dramatically improve search efficiency by reducing the branching factor early in the search tree.</p>
+
+            <div class="heuristic-comparison">
+                <div class="heuristic-card">
+                    <h4>1️⃣ MRV (Most Constrained Variable)</h4>
+                    <p><strong>Idea:</strong> Choose the variable with the smallest domain size</p>
+                    <p><strong>Benefit:</strong> Reduces branching factor and detects failures early</p>
+                    <p><strong>When to use:</strong> Primary heuristic for variable selection</p>
+                </div>
+                <div class="heuristic-card">
+                    <h4>2️⃣ Degree Heuristic (Most Constraining)</h4>
+                    <p><strong>Idea:</strong> Choose the variable involved in most constraints with unassigned variables</p>
+                    <p><strong>Benefit:</strong> Reduces future domains of other variables</p>
+                    <p><strong>When to use:</strong> As a tie-breaker when MRV produces ties</p>
+                </div>
+            </div>
+ 
+            <div class="complexity-box">
+                <h4>📈 Performance Analysis</h4>
+                <p><strong>Without Heuristics:</strong> Random variable selection leads to high branching factors throughout the search tree.</p>
+                <p><strong>With MRV + Degree:</strong> Low branching factor early on, and forward checking further reduces domains as we progress.</p>
+                <p><strong>Key Insight:</strong> MRV is generally the stronger heuristic, so we prioritize it and use Degree for tie-breaking.</p>
+            </div>
+
+            <div class="algorithm-steps">
+                <h4>Algorithm Overview:</h4>
+                1. <strong>Variable Selection:</strong> Use MRV to select the variable with fewest legal values<br>
+                2. <strong>Tie Breaking:</strong> If multiple variables have the same MRV, use Degree heuristic<br>
+                3. <strong>Value Assignment:</strong> Try each value in the selected variable's domain<br>
+                4. <strong>Forward Checking:</strong> Update domains of neighboring variables to maintain arc consistency<br>
+                5. <strong>Recursion:</strong> Recursively solve remaining variables<br>
+                6. <strong>Backtracking:</strong> If no solution exists, backtrack and try next value
+            </div>
+        </div>
+
+        <div class="section" id="steps">
+            <h1>Step-by-Step Algorithm Execution</h1>
+            <h4>❗Tip: Try each step on your own. Click next to confirm your answer and see why the choice is the correct one.</h4>
+            <div class="step-counter" id="stepCounter">Step 1 of 10</div>
+            
+            <div class="step-container">
+                <h2 class="step-title" id="stepTitle">Step 1: Initial State</h2>
+                
+                <div style="text-align: center;">
+                    <img id="stepImage" src="step1.png" alt="Step 1 visualization" class="step-image" style="display: none;">
+                    <div id="imagePlaceholder" style="width: 600px; height: 400px; background: #f0f0f0; border: 2px dashed #ccc; display: inline-flex; align-items: center; justify-content: center; margin: 20px 0; border-radius: 10px;">
+                        <span style="color: #666; font-size: 1.2em;">Upload Step 1 image</span>
+                    </div>
+                </div>
+                
+                <div class="step-description" id="stepDescription">
+                    <strong>Step 1:</strong><br>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-secondary" id="prevBtn" onclick="previousStep()" disabled>Previous Step</button>
+                <button class="btn" id="nextBtn" onclick="nextStep()">Next Step</button>
+                <button class="btn btn-secondary" onclick="resetSteps()">Reset</button>
+            </div>
+        </div>
+
+        <!-- Code Display  -->
+        <div class="section" id="code-section">
+            <h1>Algorithm Implementation</h1>
+            <h2>Python Implementation</h2>
+            <p>Here's how we can implement the CSP map coloring algorithm with MRV and Degree heuristics:</p>
+
+            <div class="code-block">
+            <pre><code class="language-python">def mrv_degree_csp_solver(regions, colors, neighbors):
+                # Initialize domains (each region can use any color initially)
+                domains = {region: colors.copy() for region in regions}
+                assignment = {}
+                
+                def is_consistent(region, color):
+                    return all(assignment.get(n) != color for n in neighbors[region])
+                
+                def forward_check(region, color):
+                    removed = {}
+                    for n in neighbors[region]:
+                        if n not in assignment and color in domains[n]:
+                            domains[n].remove(color)
+                            removed.setdefault(n, []).append(color)
+                    return removed
+                
+                def restore(removed):
+                    for r, colors in removed.items():
+                        domains[r].extend(colors)
+                
+                def select_variable(regions, domains, neighbors):
+                    unassigned = [r for r in regions if r not in assignment]
+                    if not unassigned:
+                        return None
+                    
+                    # MRV: Find minimum remaining values
+                    min_values = min(len(domains[r]) for r in unassigned)
+                    mrv_vars = [r for r in unassigned if len(domains[r]) == min_values]
+                    
+                    # Degree heuristic: Break ties by most constraining variable
+                    if len(mrv_vars) > 1:
+                        max_degree = max(sum(1 for n in neighbors[r] if n not in assignment) 
+                                    for r in mrv_vars)
+                        return next(r for r in mrv_vars 
+                                if sum(1 for n in neighbors[r] if n not in assignment) == max_degree)
+                    
+                    return mrv_vars[0]
+                
+                def backtrack():
+                    if len(assignment) == len(regions):
+                        return assignment
+                    
+                    var = select_variable(regions, domains, neighbors)
+                    for color in domains[var][:]:
+                        if is_consistent(var, color):
+                            assignment[var] = color
+                            removed = forward_check(var, color)
+                            
+                            result = backtrack()
+                            if result:
+                                return result
+                            
+                            del assignment[var]
+                            restore(removed)
+                    
+                    return None
+                
+                return backtrack()
+
+            </code></pre>
+            </div>
+
+
+            <div class="info-box">
+                <strong>Key Implementation Points:</strong><br>
+                • <strong>MRV Implementation:</strong> Count remaining legal values in each variable's domain<br>
+                • <strong>Degree Heuristic:</strong> Count constraints with unassigned variables only<br>
+                • <strong>Forward Checking:</strong> Maintain arc consistency by removing conflicting values<br>
+                • <strong>Backtracking:</strong> Restore domain states when backtracking occurs<br>
+                • <strong>Early Failure Detection:</strong> Stop immediately if any domain becomes empty
+            </div>
+            <!-- PART 2: Instructions for how to run the Python Code, to hard to implement in here :( -->
+            <div class="highlight">
+                <strong>❗Performance Tip:</strong> The combination of MRV and Degree heuristics with forward checking typically reduces the search space by orders of magnitude compared to naive backtracking!
+            </div>
+        </div>
+        <div class="newcontainer">
+        <div class="header">
+            <h1>🐍 Python CSP Map Coloring Visualizer</h1>
+            <p>Your Turn: Create new CSP Map Coloring Problems and see how MRV and Degree Heuristics can solve unique new problems.</p>
+        </div>
+        
+        <div class="content">
+            <div class="requirements">
+                <h4>📋 Prerequisites</h4>
+                <ul>
+                    <li>Visual Studio Code or another IDE</li>
+                    <li>Python3</li>
+                    <li>matplotlib library: <code>pip install matplotlib</code></li>
+                    <li>tkinter (usually included with python)</li>
+                    <li>numpy library: <code>pip install numpy</code></li>
+                </ul>
+            </div>
+
+            <div class="instruction-box">
+                <h3>How to run the Visualizer:</h3>
+                
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Download the visualizer if you have not already:</strong> Save the Python script as <code>pythonvisualizer.py</code>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Install any missing dependencies:</strong>
+                    <div class="code-snippet">pip install matplotlib numpy tkinter</div>
+                </div>
+                    <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Start a python virtual enviornment</strong>
+                    <div class="code-snippet">source ~/myenv/bin/activate</div>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>Run the visualizer:</strong>
+                    <div class="code-snippet">python pythonvisualizer.py</div>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">5</span>
+                    <strong>Create new Map Coloring Problems:</strong> Add new regions, create edges between nodes, restrict color domains, and even change the order of the two heuristics. Try to solve the problems before having the Autocolor give the answer!
+                </div>
+            </div>
+         </div>
+         </div>
+
+
+          <!-- PART 3: Network Frequency Assignment Problems -->
+        <div class="section" id="frequency-problems">
+            <h1>🌐 Network Frequency Assignment  Problems</h1>
+            <p><strong>Now apply what you've learned about Map Coloring using MRV and Degree Heuristics to solve real-world assignment problems.</strong></p>
+            <p></p>
+            <p>Background: In networking, seperate wirless networks must use different frequencies when in close proximity to avoid interference with one another. This extends to countries who must be assigned different frequency bands (1-6 MHz) to avoid interference with neighbors. Your job is to ensure there is no interference by assigning each country a seperate frequency band from any neighbor. HOWEVER, to ensure absolutely no infererence, we will also avoid assigning neighbors of neighboring countries the same frequencies.</p>
+            <div class="problem-section">
+                <div class="problem-header">
+                    <h2 class="problem-title">Problem Set</h2>
+                    <div class="problem-counter" id="problemCounter">Problem 1 of 3</div>
+                </div>
+                
+                <div id="problemContainer">
+                    <div class="map-container" id="mapContainer">
+                        <div id="mapPlaceholder" style="color: #666; font-size: 1.2em;">
+                            <p>Upload Problem 1 Map Here</p>
+                        </div>
+                        <img id="problemImage" src="" alt="Problem map" style="display: none; max-width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    
+                    <div class="problem-instructions" id="problemInstructions">
+                        <h3> Frequency Assignment</h3>
+                        <p><strong>Objective:</strong> Assign frequency bands (1-6 MHz) to each country such that:</p>
+                        <ul>
+                            <li>No two neighboring countries use the same frequency</li>
+                            <li>No two countries that are neighbors of neighbors use the same frequency</li>
+                            <li>Use MRV Heuristics with Degree Heuristics as a tie-breaker</li>
+                        </ul>
+                        <p><strong>Available Frequencies:</strong> 1 MHz, 2 MHz, 3 MHz, 4 MHz, 5 MHz, 6 MHz</p>
+                    </div>
+                </div>
+                
+                <div class="assignment-section">
+                    <h3>Your Assignment:</h3>
+                    <div class="dropdown-container" id="dropdownContainer">
+                    </div>
+                    
+                    <div class="controls">
+                        <button class="btn" onclick="checkAnswer()" id="checkBtn">Check Answer</button>
+                        <!--<button class="btn btn-secondary" onclick="nextProblem()" id="nextProblemBtn">Next Problem</button>-->
+                        <button class="btn btn-secondary" onclick="showSolution()" id="solutionBtn" style="display: none;">Show Solution</button>
+                    </div>
+                    
+                    <div id="feedback" class="feedback-box" style="display: none;"></div>
+                </div>
+    </div>
+    
+    <!-- Solution Steps Section -->
+    <div class="solution-section" id="solutionSection" style="display: none;">
+        <h2>Step-by-Step Solution</h2>
+        <div class="solution-container">
+            <div class="step-counter" id="solutionStepCounter">Step 1 of 6</div>
+            
+            <div class="step-container">
+                <h3 class="step-title" id="solutionStepTitle">Solution Step 1</h3>
+                
+                <div style="text-align: center;">
+                    <img id="solutionStepImage" src="" alt="Solution step" class="step-image" style="display: none;">
+                    <div id="solutionImagePlaceholder" style="width: 600px; height: 400px; background: #f0f0f0; border: 2px dashed #ccc; display: inline-flex; align-items: center; justify-content: center; margin: 20px 0; border-radius: 10px;">
+                        <span style="color: #666; font-size: 1.2em;">Upload Solution Step 1 image</span>
+                    </div>
+                </div>
+                
+                <div class="step-description" id="solutionStepDescription">
+                    Solution explanation will appear here...
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-secondary" id="solutionPrevBtn" onclick="previousSolutionStep()" disabled>Previous</button>
+                <button class="btn" id="solutionNextBtn" onclick="nextSolutionStep()">Next Step</button>
+                <button class="btn btn-secondary" onclick="closeSolution()">Close Solution</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 10;
+        const stepDescriptions = [
+
+            `Step 1:<br>All variables are unassigned. Every region (A–G) starts with the domain displayed on the map. The search will begin by applying MRV.`,
+
+            `Step 2:<br>
+            <strong>Region B</strong> is selected using <strong>MRV</strong> (smallest domain) and is assigned <span style="color: blue; font-weight: bold;">Blue</span>.<br><br> 
+            
+            <strong>Forward checking prunes</strong> <span style="color: blue; font-weight: bold;">Blue</span> <strong>from all adjacent regions.</strong>`,
+
+            `Step 3:<br>
+             Next, <strong>Region A</strong> is selected using the <strong>Degree Heuristic</strong> as a tie breaker.<br><br>
+
+             <strong>Region A</strong> and <strong>Region E</strong> have the <strong>same number of remaining colors</strong> (2), so the <strong>Minimum Remaining Values (MRV)</strong> heuristic results in a tie.<br><br>
+
+             To break the tie, we apply the <strong>Degree Heuristic</strong>, which looks at how many <strong>unassigned neighbors</strong> each region has:<br><br>
+             
+             • <strong>Region A</strong> has <strong>4 unassigned neighbors</strong><br><br>
+
+             • <strong>Region E</strong> has <strong>2 unassigned neighbors</strong><br><br>
+
+             Since Region A is connected to more unassigned regions, <strong>it is more constrained</strong>, so we choose <strong>Region A.</strong><br><br>
+
+             We assign <span style="color: red; font-weight: bold;">Red</span> to Region A and then continue with <strong>forward checking</strong> to remove invalid color options from its neighboring regions.`,
+
+            `Step 4:<br>
+             <strong>Region C</strong> is selected using the <strong>Degree Heuristic</strong> as a tie breaker.<br><br>
+
+             <strong>Region C</strong> and <strong>Region E</strong> have the <strong>same number of remaining colors</strong> (2), so the <strong>Minimum Remaining Values (MRV)</strong> heuristic results in a tie.<br><br>
+
+             To break the tie, we apply the <strong>Degree Heuristic</strong>, which looks at how many <strong>unassigned neighbors</strong> each region has:<br><br>
+             
+             • <strong>Region C</strong> has <strong>3 unassigned neighbors</strong><br><br>
+
+             • <strong>Region E</strong> has <strong>2 unassigned neighbors</strong><br><br>
+
+             Since Region C is connected to more unassigned regions, <strong>it is more constrained</strong>, so we choose <strong>Region C.</strong><br><br>
+
+             We assign <span style="color: green; font-weight: bold;">Green</span> to Region C and then continue with <strong>forward checking</strong> to remove invalid color options from its neighboring regions.`,
+
+            `Step 5:<br>
+
+            <strong>Region E</strong> has the fewest values left (1) and is assigned <span style="color: red; font-weight: bold;">Red</span>. All adjacent regions are updated via <strong>forward checking.</strong>`,
+
+            `Step 6:<br>
+            <strong>Region F</strong> is selected next. It avoids <span style="color: red; font-weight: bold;">Red</span> and <span style="color: green; font-weight: bold;">Green</span> due to neighbors, so it is assigned <span style="color: blue; font-weight: bold;">Blue</span>.<br><br>
+            
+            <strong>Forward checking prunes</strong> <span style="color: blue; font-weight: bold;">Blue</span> <strong>from all adjacent regions.</strong>`,
+
+            `Step 7:<br>
+            <strong>Region D</strong> is selected using <strong>MRV</strong>. Only <span style="color: #FFD700; font-weight: bold;">Yellow</span> remains valid. <strong>Region D</strong> is assigned accordingly.<br><br>
+            
+            <strong>Forward checking prunes</strong> <span style="color: #FFD700; font-weight: bold;">Yellow</span> <strong>from all adjacent regions.</strong>`,
+
+            `Step 8:<br>
+            <strong>Region G</strong> is selected next. Only <span style="color: green; font-weight: bold;">Green</span> remains valid after all constraints. Assigned without conflict.`,
+
+            `Step 9:<br>
+            All variables have assignments. No domain conflicts detected. The solution is consistent with all constraints.`,
+
+            `<strong>Complete Solution Found:</strong><br>
+            <strong>Final Assignment:</strong><br>
+            • A = <span style="color: red; font-weight: bold;">Red</span><br>
+            • B = <span style="color: blue; font-weight: bold;">Blue</span><br>
+            • C = <span style="color: green; font-weight: bold;">Green</span><br>
+            • D = <span style="color: #FFD700; font-weight: bold;">Yellow</span><br>
+            • E = <span style="color: red; font-weight: bold;">Red</span><br>
+            • F = <span style="color: blue; font-weight: bold;">Blue</span><br>
+            • G = <span style="color: green; font-weight: bold;">Green</span><br><br>
+            <strong>Success!</strong> All adjacent regions have different colors.<br>
+            <strong>Efficiency:</strong> No backtracking required thanks to MRV + Degree heuristics!`
+        ];
+
+        const stepTitles = [
+            "Step 1: Initial State",
+            "Step 2: Applying MRV after the initial state", 
+            "Step 3: Degree Heuristic Tie-Breaking",
+            "Step 4: Degree Heuristic Tie-Breaking Again",
+            "Step 5: Applying MRV to the previous map",
+            "Step 6: Continued MRV Selection",
+            "Step 7: MRV Selection Continued", 
+            "Step 8: Near Complete Solution",
+            "Step 9: Final Variable Assignment",
+            "Step 10: Complete Solution Verification"
+        ];
+
+        function updateStep() {
+            document.getElementById('stepCounter').textContent = `Step ${currentStep} of ${totalSteps}`;
+            
+            document.getElementById('stepTitle').textContent = stepTitles[currentStep - 1];
+            
+            document.getElementById('stepDescription').innerHTML = stepDescriptions[currentStep - 1];
+            
+            const stepImage = document.getElementById('stepImage');
+            const placeholder = document.getElementById('imagePlaceholder');
+            
+            stepImage.src = `step${currentStep}.png`;
+            placeholder.innerHTML = `<span style="color: #666; font-size: 1.2em;">Upload Step ${currentStep} image</span>`;
+            
+            const progressFill = document.getElementById('progressFill');
+            const progressPercent = (currentStep / totalSteps) * 100;
+            progressFill.style.width = progressPercent + '%';
+            
+            document.getElementById('prevBtn').disabled = currentStep === 1;
+            document.getElementById('nextBtn').disabled = currentStep === totalSteps;
+            
+            if (currentStep === totalSteps) {
+                document.getElementById('nextBtn').textContent = 'Complete!';
+            } else {
+                document.getElementById('nextBtn').textContent = 'Next Step';
+            }
+        }
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateStep();
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStep();
+            }
+        }
+
+        function resetSteps() {
+            currentStep = 1;
+            updateStep();
+        }
+
+        document.getElementById('stepImage').addEventListener('load', function() {
+            this.style.display = 'block';
+            document.getElementById('imagePlaceholder').style.display = 'none';
+        });
+
+        document.getElementById('stepImage').addEventListener('error', function() {
+            this.style.display = 'none';
+            document.getElementById('imagePlaceholder').style.display = 'inline-flex';
+        });
+
+        window.onload = function() {
+            updateStep();
+        };
+
+            // Part 3: Frequency Assignment JavaScript
+            // We can change these values as needed
+            let currentProblem = 1;
+            let totalProblems = 1;
+            let wrongAttempts = 0;
+            let currentSolutionStep = 1;
+            let totalSolutionSteps = 6;
+
+            //Placeholder values we will hardcode these in later as needed
+            const problems = {
+                1: {
+                    countries: ['A', 'B', 'C', 'D', 'E', 'F'],
+                    solution: { A: '1', B: '2', C: '3', D: '4', E: '5', F: '6'}
+                },
+                2: {
+                    countries: ['A', 'B', 'C', 'D', 'E', 'F'],
+                    solution: { A: '1', B: '2', C: '3', D: '4', E: '5', F: '6'}
+                },
+                3: {
+                    countries: ['A', 'B', 'C', 'D', 'E', 'F'],
+                    solution: { A: '1', B: '2', C: '3', D: '4', E: '5', F: '6'}
+                }
+            };
+
+            const solutionSteps = {
+                1: [
+                    "Step 1: Identify the constraint graph and apply MRV heuristic...",
+                    "Step 2: Select country with fewest frequency options...",
+                    "Step 3: Apply degree heuristic for tie-breaking...",
+                    "Step 4: Assign frequencies using forward checking...",
+                    "Step 5: Continue with remaining countries...",
+                    "Step 6: Verify final solution meets all constraints."
+                ]
+            };
+
+            function initializeProblem() {
+                const problem = problems[currentProblem];
+                const container = document.getElementById('dropdownContainer');
+                
+                container.innerHTML = '';
+                
+                problem.countries.forEach(country => {
+                    const div = document.createElement('div');
+                    div.className = 'country-assignment';
+                    
+                    div.innerHTML = `
+                        <span class="country-label">Country ${country}</span>
+                        <select class="frequency-select" id="freq-${country}">
+                            <option value="">Select Frequency</option>
+                            <option value="1">1 MHz</option>
+                            <option value="2">2 MHz</option>
+                            <option value="3">3 MHz</option>
+                            <option value="4">4 MHz</option>
+                            <option value="5">5 MHz</option>
+                            <option value="6">6 MHz</option>
+                        </select>
+                    `;
+                    
+                    container.appendChild(div);
+                });
+                
+                // Update problem counter and images
+                document.getElementById('problemCounter').textContent = `Problem ${currentProblem} of ${totalProblems}`;
+                document.getElementById('mapPlaceholder').innerHTML = `
+                    <p>Upload Problem ${currentProblem} Map</p>
+                `;
+                
+                // Reset UI state
+                document.getElementById('feedback').style.display = 'none';
+                document.getElementById('solutionBtn').style.display = 'none';
+                document.getElementById('nextProblemBtn').style.display = 'inline-block'; 
+                wrongAttempts = 0;
+            }
+
+            function checkAnswer() {
+                const problem = problems[currentProblem];
+                const userAnswer = {};
+                let allSelected = true;
+                
+                problem.countries.forEach(country => {
+                    const select = document.getElementById(`freq-${country}`);
+                    const value = select.value;
+                    if (value === '') {
+                        allSelected = false;
+                    } else {
+                        userAnswer[country] = value;
+                    }
+                });
+                
+                if (!allSelected) {
+                    showFeedback('Please select frequencies for all countries.', false);
+                    return;
+                }
+                
+                const isCorrect = JSON.stringify(userAnswer) === JSON.stringify(problem.solution);
+                
+                if (isCorrect) {
+                    showFeedback(' Correct! Excellent work on solving this frequency assignment problem! Try a similar problem.', true);
+                    wrongAttempts = 0;
+                } else {
+                    wrongAttempts++;
+                    let message = ` Incorrect assignment. Check for interference between neighboring countries.`;
+                    
+                    if (wrongAttempts >= 3) {
+                        message += ` You can now view the step-by-step solution.`;
+                        document.getElementById('solutionBtn').style.display = 'inline-block';
+                    }
+                    
+                    showFeedback(message, false);
+                }
+            }
+
+            function showFeedback(message, isCorrect) {
+                const feedback = document.getElementById('feedback');
+                feedback.textContent = message;
+                feedback.className = `feedback-box ${isCorrect ? 'feedback-correct' : 'feedback-incorrect'}`;
+                feedback.style.display = 'block';
+            }
+
+            function nextProblem() {
+                currentProblem++;
+                if (currentProblem > totalProblems) {
+                currentProblem = 1; // Cycle back to problem 1 for infinite use
+            }
+            initializeProblem();
+            }
+
+            function showSolution() {
+                document.getElementById('solutionSection').style.display = 'block';
+                currentSolutionStep = 1;
+                updateSolutionStep();
+            }
+
+            function closeSolution() {
+                document.getElementById('solutionSection').style.display = 'none';
+            }
+
+            function updateSolutionStep() {
+                document.getElementById('solutionStepCounter').textContent = `Step ${currentSolutionStep} of ${totalSolutionSteps}`;
+                document.getElementById('solutionStepTitle').textContent = `Solution Step ${currentSolutionStep}`;
+                document.getElementById('solutionStepDescription').textContent = solutionSteps[1][currentSolutionStep - 1];
+                
+                // Update solution image placeholder
+                document.getElementById('solutionImagePlaceholder').innerHTML = `
+                    <span style="color: #666; font-size: 1.2em;">Upload Solution Step ${currentSolutionStep} image</span>
+                `;
+                
+                document.getElementById('solutionPrevBtn').disabled = currentSolutionStep === 1;
+                document.getElementById('solutionNextBtn').disabled = currentSolutionStep === totalSolutionSteps;
+            }
+
+            function nextSolutionStep() {
+                if (currentSolutionStep < totalSolutionSteps) {
+                    currentSolutionStep++;
+                    updateSolutionStep();
+                }
+            }
+
+            function previousSolutionStep() {
+                if (currentSolutionStep > 1) {
+                    currentSolutionStep--;
+                    updateSolutionStep();
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                if (document.getElementById('dropdownContainer')) {
+                    initializeProblem();
+                }
+            });
+    </script>
+</body>
+
+</html>
