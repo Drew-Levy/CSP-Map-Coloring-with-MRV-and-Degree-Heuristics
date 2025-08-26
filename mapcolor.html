@@ -254,7 +254,8 @@
                             <li>No two neighboring states use the same frequency</li>
                             <li>No two states that are neighbors of neighbors use the same frequency</li>
                             <li>Use MRV Heuristics with Degree Heuristics as a tie-breaker</li>
-                            <li>If you have multiple options, choose smallest frequency still available</li>
+                            <li>If you have multiple options for next salid, choose salid with the earliest first letter</li>
+                            <li>If you have multiple options for frequency, choose smallest frequency still available</li>
                         </ul>
                         <p><strong>Available Frequencies:</strong> 1 MHz, 2 MHz, 3 MHz, 4 MHz, 5 MHz, 6 MHz, 7MHz, 8MHz</p>
                     </div>
@@ -460,13 +461,13 @@
             let wrongAttempts = 0;
             let currentSolutionStep = 1;
             //Update this with correct amount of steps ToDo
-            let totalSolutionSteps = 20;
+            let totalSolutionSteps = 17;
 
             //Placeholder values we will hardcode these in later as needed ToDo 
             const problems = {
                 1: {
                     countries: ['WA', 'OR', 'CA', 'NV', 'ID', 'UT', 'AZ', 'MT', 'WY', 'CO', 'NM', 'ND', 'SD', 'NE', "KS", 'OK', 'TX'],
-                    solution: { WA: '1', OR: '2', CA: '3', NV: '4', ID: '5', UT: '6', AZ: '7', MT: '6', WY: '6', CO: '6', NM: '6', ND: '6', SD: '6', NE: '6', KS: '6', OK: '6', TX: '6'}
+                    solution: { WA: '5', OR: '1', CA: '4', NV: '6', ID: '2', UT: '7', AZ: '3', MT: '3', WY: '4', CO: '1', NM: '5', ND: '1', SD: '5', NE: '8', KS: '6', OK: '2', TX: '3'}
                 },
             };
 
