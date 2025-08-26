@@ -229,10 +229,10 @@
 
           <!-- PART 3: Network Frequency Assignment Problems -->
         <div class="section" id="frequency-problems">
-            <h1>🌐 Network Frequency Assignment  Problems</h1>
+            <h1>🌐 Network Frequency Assignment  Problem</h1>
             <p><strong>Now apply what you've learned about Map Coloring using MRV and Degree Heuristics to solve real-world assignment problems.</strong></p>
             <p></p>
-            <p>Background: In networking, seperate wirless networks must use different frequencies when in close proximity to avoid interference with one another. This extends to countries who must be assigned different frequency bands (1-6 MHz) to avoid interference with neighbors. Your job is to ensure there is no interference by assigning each country a seperate frequency band from any neighbor. HOWEVER, to ensure absolutely no infererence, we will also avoid assigning neighbors of neighboring countries the same frequencies.</p>
+            <p>Background: In networking, seperate wirless networks must use different frequencies when in close proximity to avoid interference with one another. This extends to countries/states who must be assigned different frequency bands (1-8 MHz) to avoid interference with neighbors. Your job is to ensure there is no interference by assigning each State a seperate frequency band from any neighbor. HOWEVER, to ensure absolutely no infererence, we will also avoid assigning neighbors of neighboring states the same frequencies.</p>
             <div class="problem-section">
                 <div class="problem-header">
                     <h2 class="problem-title">Problem Set</h2>
@@ -249,13 +249,13 @@
                     
                     <div class="problem-instructions" id="problemInstructions">
                         <h3> Frequency Assignment</h3>
-                        <p><strong>Objective:</strong> Assign frequency bands (1-6 MHz) to each country such that:</p>
+                        <p><strong>Objective:</strong> Assign frequency bands (1-8 MHz) to each states such that:</p>
                         <ul>
-                            <li>No two neighboring countries use the same frequency</li>
-                            <li>No two countries that are neighbors of neighbors use the same frequency</li>
+                            <li>No two neighboring states use the same frequency</li>
+                            <li>No two states that are neighbors of neighbors use the same frequency</li>
                             <li>Use MRV Heuristics with Degree Heuristics as a tie-breaker</li>
                         </ul>
-                        <p><strong>Available Frequencies:</strong> 1 MHz, 2 MHz, 3 MHz, 4 MHz, 5 MHz, 6 MHz</p>
+                        <p><strong>Available Frequencies:</strong> 1 MHz, 2 MHz, 3 MHz, 4 MHz, 5 MHz, 6 MHz, 7MHz, 8MHz</p>
                     </div>
                 </div>
                 
@@ -459,32 +459,25 @@
             let totalProblems = 1;
             let wrongAttempts = 0;
             let currentSolutionStep = 1;
-            let totalSolutionSteps = 6;
+            //Update this with correct amount of steps ToDo
+            let totalSolutionSteps = 20;
 
             //Placeholder values we will hardcode these in later as needed
             const problems = {
                 1: {
-                    countries: ['A', 'B', 'C', 'D', 'E', 'F'],
-                    solution: { A: '1', B: '2', C: '3', D: '4', E: '5', F: '6'}
+                    countries: ['WA', 'OR', 'CA', 'NV', 'ID', 'UT', 'AZ', 'MT', 'WY', 'CO', 'NM', 'ND', 'SD', 'NE', "KS", 'OK', 'TX'],
+                    solution: { WA: '1', OR: '2', CA: '3', NV: '4', ID: '5', UT: '6', AZ: '7', MT: '6', WY: '6', CO: '6', NM: '6', ND: '6', SD: '6', NE: '6', KS: '6', OK: '6', TX: '6'}
                 },
-                2: {
-                    countries: ['A', 'B', 'C', 'D', 'E', 'F'],
-                    solution: { A: '1', B: '2', C: '3', D: '4', E: '5', F: '6'}
-                },
-                3: {
-                    countries: ['A', 'B', 'C', 'D', 'E', 'F'],
-                    solution: { A: '1', B: '2', C: '3', D: '4', E: '5', F: '6'}
-                }
             };
 
             const solutionSteps = {
                 1: [
-                    "Step 1: Identify the constraint graph and apply MRV heuristic...",
-                    "Step 2: Select country with fewest frequency options...",
-                    "Step 3: Apply degree heuristic for tie-breaking...",
-                    "Step 4: Assign frequencies using forward checking...",
-                    "Step 5: Continue with remaining countries...",
-                    "Step 6: Verify final solution meets all constraints."
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
                 ]
             };
 
@@ -499,7 +492,7 @@
                     div.className = 'country-assignment';
                     
                     div.innerHTML = `
-                        <span class="country-label">Country ${country}</span>
+                        <span class="country-label">State: ${country}</span>
                         <select class="frequency-select" id="freq-${country}">
                             <option value="">Select Frequency</option>
                             <option value="1">1 MHz</option>
@@ -508,13 +501,15 @@
                             <option value="4">4 MHz</option>
                             <option value="5">5 MHz</option>
                             <option value="6">6 MHz</option>
+                            <option value="7">7 MHz</option>
+                            <option value="8">8 MHz</option>
                         </select>
                     `;
                     
                     container.appendChild(div);
                 });
                 
-                // Update problem counter and images
+                // ToDoUpdate problem counter and images
                 document.getElementById('problemCounter').textContent = `Problem ${currentProblem} of ${totalProblems}`;
                 document.getElementById('mapPlaceholder').innerHTML = `
                     <p>Upload Problem ${currentProblem} Map</p>
@@ -543,18 +538,18 @@
                 });
                 
                 if (!allSelected) {
-                    showFeedback('Please select frequencies for all countries.', false);
+                    showFeedback('Please select frequencies for all states.', false);
                     return;
                 }
                 
                 const isCorrect = JSON.stringify(userAnswer) === JSON.stringify(problem.solution);
                 
                 if (isCorrect) {
-                    showFeedback(' Correct! Excellent work on solving this frequency assignment problem! Try a similar problem.', true);
+                    showFeedback(' Correct! Excellent work on solving this frequency assignment problem!', true);
                     wrongAttempts = 0;
                 } else {
                     wrongAttempts++;
-                    let message = ` Incorrect assignment. Check for interference between neighboring countries.`;
+                    let message = ` Incorrect assignment. Check for interference between neighboring states.`;
                     
                     if (wrongAttempts >= 3) {
                         message += ` You can now view the step-by-step solution.`;
@@ -595,7 +590,7 @@
                 document.getElementById('solutionStepTitle').textContent = `Solution Step ${currentSolutionStep}`;
                 document.getElementById('solutionStepDescription').textContent = solutionSteps[1][currentSolutionStep - 1];
                 
-                // Update solution image placeholder
+                //v ToDo Update solution image placeholder
                 document.getElementById('solutionImagePlaceholder').innerHTML = `
                     <span style="color: #666; font-size: 1.2em;">Upload Solution Step ${currentSolutionStep} image</span>
                 `;
