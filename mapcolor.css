@@ -331,19 +331,20 @@
         }
 
         .map-container {
-            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-            border: 3px dashed #8b5cf6;
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            margin-bottom: 30px;
-            min-height: 700px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
+        background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        border: 3px dashed #8b5cf6;
+        border-radius: 15px;
+        padding: 40px;
+        text-align: center;
+        margin: 0 auto 30px auto;
+        min-height: 500px;
+        width: 700px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
 
         .problem-instructions {
             background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 50%);
