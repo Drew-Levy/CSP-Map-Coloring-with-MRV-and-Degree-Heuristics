@@ -232,30 +232,31 @@
             <h1>🌐 Network Frequency Assignment  Problem</h1>
             <p><strong>Now apply what you've learned about Map Coloring using MRV and Degree Heuristics to solve real-world assignment problems.</strong></p>
             <p></p>
-            <p>Background: In networking, seperate wirless networks must use different frequencies when in close proximity to avoid interference with one another. This extends to countries/states who must be assigned different frequency bands (1-9 MHz) to avoid interference with neighbors. Your job is to ensure there is no interference by assigning each State a seperate frequency band from any neighbor. HOWEVER, to ensure absolutely no infererence, we will also avoid assigning neighbors of neighboring states the same frequencies.</p>
+            <p>Background: In networking, seperate wirless networks must use different frequencies when in close proximity to avoid interference with one another. This extends to countries/states who must be assigned different frequency bands (1-8 MHz) to avoid interference with neighbors. Your job is to ensure there is no interference by assigning each State a seperate frequency band from any neighbor. HOWEVER, to ensure absolutely no infererence, we will also avoid assigning neighbors of neighboring states the same frequencies.</p>
             <div class="problem-section">
                 <div class="problem-header">
                     <h2 class="problem-title">Problem Set</h2>
-                    <div class="problem-counter" id="problemCounter">Problem 1 of 3</div>
+                    <div class="problem-counter" id="problemCounter">Problem 1</div>
                 </div>
                 
                 <div id="problemContainer">
                     <div class="map-container" id="mapContainer">
                         <div id="mapPlaceholder" style="color: #666; font-size: 1.2em;">
-                            <p>Upload Problem 1 Map Here</p>
+                             <img id="frequencyImage" src="nf_start.png" alt="Step 1 visualization" class="step-image">
                         </div>
                         <img id="problemImage" src="" alt="Problem map" style="display: none; max-width: 100%; height: auto; border-radius: 8px;">
                     </div>
                     
                     <div class="problem-instructions" id="problemInstructions">
                         <h3> Frequency Assignment</h3>
-                        <p><strong>Objective:</strong> Assign frequency bands (1-9 MHz) to each states such that:</p>
+                        <p><strong>Objective:</strong> Assign frequency bands (1-8 MHz) to each states such that:</p>
                         <ul>
                             <li>No two neighboring states use the same frequency</li>
                             <li>No two states that are neighbors of neighbors use the same frequency</li>
                             <li>Use MRV Heuristics with Degree Heuristics as a tie-breaker</li>
+                            <li>If you have multiple options, choose smallest frequency still available</li>
                         </ul>
-                        <p><strong>Available Frequencies:</strong> 1 MHz, 2 MHz, 3 MHz, 4 MHz, 5 MHz, 6 MHz, 7MHz, 8MHz, 9MHz</p>
+                        <p><strong>Available Frequencies:</strong> 1 MHz, 2 MHz, 3 MHz, 4 MHz, 5 MHz, 6 MHz, 7MHz, 8MHz</p>
                     </div>
                 </div>
                 
@@ -454,7 +455,6 @@
         };
 
             // Part 3: Frequency Assignment JavaScript
-            // We can change these values as needed
             let currentProblem = 1;
             let totalProblems = 1;
             let wrongAttempts = 0;
@@ -462,7 +462,7 @@
             //Update this with correct amount of steps ToDo
             let totalSolutionSteps = 20;
 
-            //Placeholder values we will hardcode these in later as needed
+            //Placeholder values we will hardcode these in later as needed ToDo 
             const problems = {
                 1: {
                     countries: ['WA', 'OR', 'CA', 'NV', 'ID', 'UT', 'AZ', 'MT', 'WY', 'CO', 'NM', 'ND', 'SD', 'NE', "KS", 'OK', 'TX'],
@@ -503,18 +503,12 @@
                             <option value="6">6 MHz</option>
                             <option value="7">7 MHz</option>
                             <option value="8">8 MHz</option>
-                            <option value="9">9 MHz</option>
                         </select>
                     `;
                     
                     container.appendChild(div);
                 });
                 
-                // ToDoUpdate problem counter and images
-                document.getElementById('problemCounter').textContent = `Problem ${currentProblem} of ${totalProblems}`;
-                document.getElementById('mapPlaceholder').innerHTML = `
-                    <p>Upload Problem ${currentProblem} Map</p>
-                `;
                 
                 // Reset UI state
                 document.getElementById('feedback').style.display = 'none';
@@ -586,19 +580,19 @@
                 document.getElementById('solutionSection').style.display = 'none';
             }
 
-            function updateSolutionStep() {
-                document.getElementById('solutionStepCounter').textContent = `Step ${currentSolutionStep} of ${totalSolutionSteps}`;
-                document.getElementById('solutionStepTitle').textContent = `Solution Step ${currentSolutionStep}`;
-                document.getElementById('solutionStepDescription').textContent = solutionSteps[1][currentSolutionStep - 1];
-                
-                //v ToDo Update solution image placeholder
-                document.getElementById('solutionImagePlaceholder').innerHTML = `
-                    <span style="color: #666; font-size: 1.2em;">Upload Solution Step ${currentSolutionStep} image</span>
-                `;
-                
-                document.getElementById('solutionPrevBtn').disabled = currentSolutionStep === 1;
-                document.getElementById('solutionNextBtn').disabled = currentSolutionStep === totalSolutionSteps;
-            }
+          function updateSolutionStep() {
+    document.getElementById('solutionStepCounter').textContent = `Step ${currentSolutionStep} of ${totalSolutionSteps}`;
+    document.getElementById('solutionStepTitle').textContent = `Solution Step ${currentSolutionStep}`;
+    document.getElementById('solutionStepDescription').textContent = solutionSteps[1][currentSolutionStep - 1];
+    
+    const solutionImage = document.getElementById('solutionStepImage');
+    solutionImage.src = `nf_${currentSolutionStep}.png`;
+    solutionImage.style.display = 'block';
+    document.getElementById('solutionImagePlaceholder').style.display = 'none';
+    
+    document.getElementById('solutionPrevBtn').disabled = currentSolutionStep === 1;
+    document.getElementById('solutionNextBtn').disabled = currentSolutionStep === totalSolutionSteps;
+}
 
             function nextSolutionStep() {
                 if (currentSolutionStep < totalSolutionSteps) {
