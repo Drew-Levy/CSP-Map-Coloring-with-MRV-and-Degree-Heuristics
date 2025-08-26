@@ -232,7 +232,7 @@
             <h1>🌐 Network Frequency Assignment  Problem</h1>
             <p><strong>Now apply what you've learned about Map Coloring using MRV and Degree Heuristics to solve real-world assignment problems.</strong></p>
             <p></p>
-            <p>Background: In networking, seperate wirless networks must use different frequencies when in close proximity to avoid interference with one another. This extends to countries/states who must be assigned different frequency bands (1-8 MHz) to avoid interference with neighbors. Your job is to ensure there is no interference by assigning each State a seperate frequency band from any neighbor. HOWEVER, to ensure absolutely no infererence, we will also avoid assigning neighbors of neighboring states the same frequencies.</p>
+            <p>Background: In networking, seperate wirless networks must use different frequencies when in close proximity to avoid interference with one another. This extends to countries/states who must be assigned different frequency bands (1-9 MHz) to avoid interference with neighbors. Your job is to ensure there is no interference by assigning each State a seperate frequency band from any neighbor. HOWEVER, to ensure absolutely no infererence, we will also avoid assigning neighbors of neighboring states the same frequencies.</p>
             <div class="problem-section">
                 <div class="problem-header">
                     <h2 class="problem-title">Problem Set</h2>
@@ -249,13 +249,13 @@
                     
                     <div class="problem-instructions" id="problemInstructions">
                         <h3> Frequency Assignment</h3>
-                        <p><strong>Objective:</strong> Assign frequency bands (1-8 MHz) to each states such that:</p>
+                        <p><strong>Objective:</strong> Assign frequency bands (1-9 MHz) to each states such that:</p>
                         <ul>
                             <li>No two neighboring states use the same frequency</li>
                             <li>No two states that are neighbors of neighbors use the same frequency</li>
                             <li>Use MRV Heuristics with Degree Heuristics as a tie-breaker</li>
                         </ul>
-                        <p><strong>Available Frequencies:</strong> 1 MHz, 2 MHz, 3 MHz, 4 MHz, 5 MHz, 6 MHz, 7MHz, 8MHz</p>
+                        <p><strong>Available Frequencies:</strong> 1 MHz, 2 MHz, 3 MHz, 4 MHz, 5 MHz, 6 MHz, 7MHz, 8MHz, 9MHz</p>
                     </div>
                 </div>
                 
@@ -503,6 +503,7 @@
                             <option value="6">6 MHz</option>
                             <option value="7">7 MHz</option>
                             <option value="8">8 MHz</option>
+                            <option value="9">9 MHz</option>
                         </select>
                     `;
                     
